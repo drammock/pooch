@@ -3,47 +3,46 @@
 Installing
 ==========
 
+There are different ways to install Pooch:
+
+.. tabbed:: pip
+
+    Using the `pip <https://pypi.org/project/pip/>`__ package manager:
+
+    .. code:: bash
+
+        python -m pip install pooch
+
+.. tabbed:: conda
+
+    Using the `conda <https://conda.io/>`__ package manager that comes with the
+    Anaconda/Miniconda distribution:
+
+    .. code:: bash
+
+        conda install pooch --channel conda-forge
+
+.. tabbed:: Development version
+
+    Using ``pip`` to install the latest **unreleased** version from GitHub
+    (**not recommended** in most situations):
+
+    .. code:: bash
+
+        python -m pip install --upgrade git+https://github.com/fatiando/pooch
+
+.. note::
+
+    The commands above should be executed in a terminal. On Windows, use the
+    ``cmd.exe`` or the "Anaconda Prompt" app if you're using Anaconda.
+
 Which Python?
 -------------
 
-You'll need **Python >= 3.6** (see :ref:`python-versions` if you
-require support for older versions).
+You'll need **Python >= 3.7**. See :ref:`python-versions` if you
+require support for older versions.
 
-We recommend using the
-`Anaconda <https://www.anaconda.com/download>`__
-or `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`__
-Python distributions to ensure you have all dependencies installed and the
-``conda`` package manager available.
-Installing Anaconda does not require administrative rights to your computer and
-doesn't interfere with any other Python installations in your system.
-
-
-Installing with conda
----------------------
-
-You can install pooch using the `conda package manager <https://conda.io/>`__
-that comes with the Anaconda distribution::
-
-    conda install pooch --channel conda-forge
-
-
-Installing with pip
--------------------
-
-Alternatively, you can also use the `pip package manager
-<https://pypi.org/project/pip/>`__::
-
-    python -m pip install pooch
-
-
-Installing the latest development version
------------------------------------------
-
-You can use ``pip`` to install the latest version of the source code from
-GitHub::
-
-    python -m pip install --upgrade git+https://github.com/fatiando/pooch
-
+.. _dependencies:
 
 Dependencies
 ------------
@@ -54,49 +53,15 @@ manually.
 
 Required:
 
-* `requests <http://docs.python-requests.org/>`__
-* `packaging <https://github.com/pypa/packaging>`__
 * `appdirs <https://github.com/ActiveState/appdirs>`__
+* `packaging <https://github.com/pypa/packaging>`__
+* `requests <https://docs.python-requests.org/>`__
 
 Optional:
 
-* `tqdm <https://github.com/tqdm/tqdm>`__: Required to print a download
-  progress bar (see :class:`pooch.HTTPDownloader`).
-* `paramiko <https://github.com/paramiko/paramiko>`__: Required for SFTP
-  downloads (see :class:`pooch.SFTPDownloader`).
-
-
-Testing your install
---------------------
-
-.. note::
-
-    This step is optional.
-
-We ship a full test suite with the package.
-To run the tests, you'll need to install some extra dependencies first:
-
-* `pytest <https://docs.pytest.org/>`__
-
-After that, you can test your installation by running the following inside a
-Python interpreter or Jupyter notebook::
-
-    import pooch
-    pooch.test()
-
-
-.. _python-versions:
-
-Python version compatibility
-----------------------------
-
-If you require support for older Python versions, please pin Pooch to the
-following releases to ensure compatibility:
-
-+----------------+-------------------------------+
-| Python version | Last compatible Pooch release |
-+----------------+-------------------------------+
-| 2.7            | 0.6.0                         |
-+----------------+-------------------------------+
-| 3.5            | 1.2.0                         |
-+----------------+-------------------------------+
+* `tqdm <https://github.com/tqdm/tqdm>`__: For printing a download
+  progress bar. See :ref:`progressbars`.
+* `paramiko <https://github.com/paramiko/paramiko>`__: For SFTP downloads. See
+  :class:`pooch.SFTPDownloader`.
+* `xxhash <https://github.com/ifduyue/python-xxhash>`__: For the faster xxHash
+  algorithms. See :ref:`hashes-other`.
